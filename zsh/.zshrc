@@ -26,7 +26,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # alias
 alias gs='git status -s'
-
+alias gc='git commit -m'
 
 
 
