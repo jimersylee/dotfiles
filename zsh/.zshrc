@@ -1,6 +1,11 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
-
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# Q pre block. Keep at the top of this file.
+#
+# http代理
+export https_proxy=http://127.0.0.1:6152
+export http_proxy=http://127.0.0.1:6152
+export all_proxy=socks5://127.0.0.1:6153
 # starship主题配置
 eval "$(starship init zsh)"
 # nvm配置
@@ -16,23 +21,61 @@ eval "$(jenv init -)"
 
 #homebrew
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
-
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_NO_AUTO_UPDATE=
 # iterm2的插件
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# bw
+export BW_SESSION="z77tpkEN8OnLNW8GW3LeuuwQ2HgetnvXTvtBBW2GSztJWJM1uolbEvBcPBKzpYdXhl3cpO5IAOh1KYcEWotrgw=="
 
-
-
-
+# conda
+export PATH=/opt/homebrew/anaconda3/bin:$PATH
+# qt5
+#
+export QT_HOMEBREW=true
+export QT_API=5.13.0
 # alias
 alias gs='git status -s'
 alias gc='git commit -m'
+alias vim='nvim'
+alias vi='vim'
+#alias python3='python3.12'
+eval $(thefuck --alias)
 
+# pnpm
+export PNPM_HOME="/Users/jimmy/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
+# Q post block. Keep at the bottom of this file.
 
 
+
+
+# bun completions
+[ -s "/Users/jimmy/.bun/_bun" ] && source "/Users/jimmy/.bun/_bun"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

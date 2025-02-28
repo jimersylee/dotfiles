@@ -1,20 +1,16 @@
-[filter "lfs"]
-        required = true
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
-        process = git-lfs filter-process
-[core]
-	editor = vim
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	brb = checkout -b
 [user]
-	email = jimersylee@gmail.com
-	name = jimmylee
-[push]
-	default = current
-
-
+	name = jimersylee
+	email = jimersylee+github@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	quotepath = false
+[gui]
+	encoding = utf-8
+[i18n "commit"]
+	encoding = utf-8
+[i18n]
+	logoutputencoding = utf-8
