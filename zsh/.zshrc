@@ -18,6 +18,9 @@ export NVM_DIR="$HOME/.nvm"
 #jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+# mysoftware
+export PATH=/Users/jimmy/personal/software:$PATH
+
 
 #homebrew
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
@@ -31,6 +34,10 @@ export BW_SESSION="z77tpkEN8OnLNW8GW3LeuuwQ2HgetnvXTvtBBW2GSztJWJM1uolbEvBcPBKzp
 
 # conda
 export PATH=/opt/homebrew/anaconda3/bin:$PATH
+
+#curl,因为conda里也有curl, 使用这个curl覆盖下
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
 # qt5
 #
 export QT_HOMEBREW=true
@@ -70,7 +77,6 @@ unset __conda_setup
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 
 # Q post block. Keep at the bottom of this file.
-
 
 
 
