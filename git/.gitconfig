@@ -8,6 +8,7 @@
 	required = true
 [core]
 	quotepath = false
+	autocrlf = input
 [gui]
 	encoding = utf-8
 [i18n "commit"]
