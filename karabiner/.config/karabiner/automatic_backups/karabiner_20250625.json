@@ -24,16 +24,16 @@
                     "identifiers": { "is_keyboard": true },
                     "simple_modifications": [
                         {
+                            "from": { "key_code": "backslash" },
+                            "to": [{ "key_code": "delete_or_backspace" }]
+                        },
+                        {
                             "from": { "key_code": "caps_lock" },
                             "to": [{ "key_code": "left_control" }]
                         },
                         {
                             "from": { "key_code": "delete_or_backspace" },
                             "to": [{ "key_code": "backslash" }]
-                        },
-                        {
-                            "from": { "key_code": "backslash" },
-                            "to": [{ "key_code": "delete_or_backspace" }]
                         }
                     ]
                 },
@@ -45,12 +45,12 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "backslash" },
-                            "to": [{ "key_code": "delete_or_backspace" }]
-                        },
-                        {
                             "from": { "key_code": "caps_lock" },
                             "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "backslash" },
+                            "to": [{ "key_code": "delete_or_backspace" }]
                         },
                         {
                             "from": { "key_code": "delete_or_backspace" },

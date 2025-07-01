@@ -3,18 +3,23 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
+
+    providers={
+      ollama = {
+      enpoint = "http://127.0.0.1:11434",
+      model = "qwen:14b", -- your desired model (or use gpt-4o, etc.)
+      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+      extra_request_body = {
+          options = {
+            temperature = 0.75,
+            num_ctx = 20480,
+            keep_alive = "5m",
+          },
+        },
+    },
     -- add any opts here
     -- for example
     provider = "ollama",
-    ollama = {
-      -- enpoint = "https://api.openai.com/v1",
-      model = "qwen:14b", -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
-      max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    },
-
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -57,4 +62,4 @@ return {
       ft = { "markdown", "Avante" },
     },
   },
-}
+}}

@@ -11,6 +11,7 @@
   autocrlf = input
 [gui]
   encoding = utf-8
+	recentrepo = /Users/jimmy/projects/InjectLib
 [i18n "commit"]
   encoding = utf-8
 [i18n]
@@ -65,4 +66,4 @@
         # (just 'diff3' if git version < 2.3)
         # conflictstyle = zdiff3 
 [pull]
-        # rebase = true
+         rebase = true

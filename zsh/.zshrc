@@ -2,6 +2,9 @@
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # Q pre block. Keep at the top of this file.
 #
+# gemini
+export GOOGLE_CLOUD_PROJECT="sylvan-server-424906-p8"
+
 # http代理
 export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
@@ -79,10 +82,16 @@ unset __conda_setup
 
 # Q post block. Keep at the bottom of this file.
 
+# vince
+export VINCE_INSTALL="$HOME/.vince"
+export PATH="$VINCE_INSTALL/bin:$PATH"
 
+alias luamake="'/Users/jimmy/projects/luamake/luamake'"
 
 # bun completions
 [ -s "/Users/jimmy/.bun/_bun" ] && source "/Users/jimmy/.bun/_bun"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+
