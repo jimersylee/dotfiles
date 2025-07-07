@@ -24,7 +24,7 @@ return {
               -- 基本配置
               licenceKey = nil, -- 如果有许可证，可以在这里填写
               clearCache = false,
-              
+
               -- 诊断配置 - 只使用 intelephense 的诊断
               diagnostics = {
                 enable = true,
@@ -40,7 +40,7 @@ return {
                 undefinedVariables = true,
                 unusedVariables = true,
               },
-              
+
               -- 格式化配置
               format = {
                 enable = true, -- 启用内置格式化
@@ -50,7 +50,7 @@ return {
                 maxLineLength = 0, -- 不限制行长度
                 wrapLineLength = 0, -- 不限制换行长度
               },
-              
+
               -- 其他配置
               telemetry = {
                 enable = false, -- 禁用遥测
@@ -61,7 +61,7 @@ return {
                 insertUseDeclaration = true,
                 fullyQualifyGlobalConstantsAndFunctions = false,
               },
-              
+
               -- 文件配置
               files = {
                 maxSize = 5000000, -- 5MB
@@ -96,14 +96,14 @@ return {
       opts.linters_by_ft = opts.linters_by_ft or {}
       -- 完全清空 PHP 的 linters
       opts.linters_by_ft.php = {}
-      
+
       -- 也清理可能存在的全局linters定义
       if opts.linters then
         opts.linters.phpcs = nil
         opts.linters.phpstan = nil
         opts.linters.psalm = nil
       end
-      
+
       return opts
     end,
   },
@@ -119,30 +119,32 @@ return {
       local filtered_sources = {}
       for _, source in ipairs(opts.sources) do
         local should_exclude = false
-        
+
         -- 检查source名称
         if source.name then
           local name_lower = source.name:lower()
-          if name_lower:match("php") or 
-             name_lower == "phpcs" or 
-             name_lower == "phpcbf" or 
-             name_lower == "phpstan" or
-             name_lower == "psalm" or
-             name_lower == "php_cs_fixer" then
+          if
+            name_lower:match("php")
+            or name_lower == "phpcs"
+            or name_lower == "phpcbf"
+            or name_lower == "phpstan"
+            or name_lower == "psalm"
+            or name_lower == "php_cs_fixer"
+          then
             should_exclude = true
           end
         end
-        
+
         -- 检查method类型和filetypes
         if source.filetypes and vim.tbl_contains(source.filetypes, "php") then
           should_exclude = true
         end
-        
+
         if not should_exclude then
           table.insert(filtered_sources, source)
         end
       end
-      
+
       opts.sources = filtered_sources
       return opts
     end,
@@ -154,10 +156,10 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.formatters_by_ft = opts.formatters_by_ft or {}
-      
+
       -- 强制使用 LSP (intelephense) 进行格式化
       opts.formatters_by_ft.php = { "lsp" }
-      
+
       -- 清理可能存在的PHP formatters定义
       if opts.formatters then
         opts.formatters.phpcs = nil
@@ -165,7 +167,7 @@ return {
         opts.formatters["php-cs-fixer"] = nil
         opts.formatters["php_cs_fixer"] = nil
       end
-      
+
       return opts
     end,
   },
@@ -183,12 +185,12 @@ return {
           vim.opt_local.tabstop = 4
           vim.opt_local.softtabstop = 4
           vim.opt_local.expandtab = true
-          
+
           -- 延迟清理非intelephense的诊断
           vim.defer_fn(function()
             local diagnostics = vim.diagnostic.get(ev.buf)
             local filtered_diagnostics = {}
-            
+
             for _, diag in ipairs(diagnostics) do
               -- 只保留intelephense或无source的诊断
               if not diag.source or diag.source == "intelephense" then
@@ -198,7 +200,7 @@ return {
                 print(string.format("Filtered diagnostic from: %s", diag.source))
               end
             end
-            
+
             -- 如果有被过滤的诊断，重新设置
             if #filtered_diagnostics ~= #diagnostics then
               vim.diagnostic.reset(nil, ev.buf)
