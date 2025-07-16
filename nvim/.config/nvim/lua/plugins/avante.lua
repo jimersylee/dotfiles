@@ -1,60 +1,58 @@
 return {
-  "yetone/avante.nvim",
-  event = "VeryLazy",
-  version = false, -- Never set this value to "*"! Never!
-  opts = {
-
-    providers = {
-      ollama = {
-        enpoint = "http://127.0.0.1:11434",
-        model = "qwen:14b", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-        extra_request_body = {
-          options = {
+  {
+    "yetone/avante.nvim",
+    -- 如果您想从源代码构建，请执行 `make BUILD_FROM_SOURCE=true`
+    build = "make", -- ⚠️ 一定要加上这一行配置！！！！！
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- 对于 Windows
+    event = "VeryLazy",
+    version = false, -- 永远不要将此值设置为 "*"！永远不要！
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      -- 在此处添加任何选项
+      -- 例如
+      provider = "ollama",
+      providers = {
+        ollama = {
+          endpoint = "http://localhost:11434",
+          model = "qwen3:4b",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
             temperature = 0.75,
-            num_ctx = 20480,
-            keep_alive = "5m",
+            max_tokens = 20480,
           },
         },
       },
-      -- add any opts here
-      -- for example
-      provider = "ollama",
     },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      --- 以下依赖项是可选的，
+      "echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
+      "nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
+      "hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
+      "ibhagwan/fzf-lua", -- 用于文件选择器提供者 fzf
+      "nvim-tree/nvim-web-devicons", -- 或 echasnovski/mini.icons
+      "zbirenbaum/copilot.lua", -- 用于 providers='copilot'
       {
-        -- support for image pasting
+        -- 支持图像粘贴
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
         opts = {
-          -- recommended settings
+          -- 推荐设置
           default = {
             embed_image_as_base64 = false,
             prompt_for_file_name = false,
             drag_and_drop = {
               insert_mode = true,
             },
-            -- required for Windows users
+            -- Windows 用户必需
             use_absolute_path = true,
           },
         },
       },
       {
-        -- Make sure to set this up properly if you have lazy=true
+        -- 如果您有 lazy=true，请确保正确设置
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
