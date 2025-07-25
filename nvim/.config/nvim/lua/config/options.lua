@@ -7,3 +7,6 @@ vim.g.lazyvim_php_lsp = "intelephense"
 
 -- 此选项设置为 "" 会导致 nvim 无法和系统剪切板互通
 -- vim.opt.clipboard = ""
+--
+-- autoformat when save
+vim.g.autoformat = false
