@@ -36,35 +36,6 @@
                             "to": [{ "key_code": "backslash" }]
                         }
                     ]
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 49291,
-                        "vendor_id": 1133
-                    },
-                    "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 1296,
-                        "vendor_id": 1204
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "left_control" }]
-                        },
-                        {
-                            "from": { "key_code": "delete_or_backspace" },
-                            "to": [{ "key_code": "backslash" }]
-                        },
-                        {
-                            "from": { "key_code": "backslash" },
-                            "to": [{ "key_code": "delete_or_backspace" }]
-                        }
-                    ]
                 }
             ],
             "name": "Jimmy's HHKB style karabiner profile",
