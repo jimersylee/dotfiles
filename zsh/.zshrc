@@ -87,11 +87,11 @@ export PATH="$PATH:/Users/jimmy/.lmstudio/bin"
 # kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
+. "$HOME/.cargo/env"
 
-
-
-
-
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jimmy/.lmstudio/bin"
+# End of LM Studio CLI section
 
 
 # Amazon Q post block. Keep at the bottom of this file.
