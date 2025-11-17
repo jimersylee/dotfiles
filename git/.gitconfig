@@ -1,6 +1,8 @@
 [user]
   name = jimersylee
   email = jimersylee+github@gmail.com
+[includeIf "gitdir:~/c5game/projects/"]
+    Path = .gitconfig-work
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

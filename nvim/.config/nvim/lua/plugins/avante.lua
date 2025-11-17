@@ -28,7 +28,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- 以下依赖项是可选的，
-      "echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
+      "nvim-mini/mini.pick", -- 用于文件选择器提供者 mini.pick
       "nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
       "hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
       "ibhagwan/fzf-lua", -- 用于文件选择器提供者 fzf
