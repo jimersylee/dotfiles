@@ -1,6 +1,24 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-# Q pre block. Keep at the top of this file.
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+# oh-my-zsh start
+export ZSH="$HOME/.config/oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(
+  git
+dotenv
+macos
+z
+git-flow
+golang
+jenv
+kube-ps1
+nvm
+docker
+docker-compose
+mysql-macports
+)
+source $ZSH/oh-my-zsh.sh
+# oh-my-zsh end
 # ghost
 if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
     export TERM=xterm-256color
@@ -71,8 +89,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-# fig-dotfiles
-[[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 # vince
 export VINCE_INSTALL="$HOME/.vince"
 export PATH="$VINCE_INSTALL/bin:$PATH"
@@ -93,10 +109,11 @@ export PATH="$PATH:/Users/jimmy/.lmstudio/bin"
 export PATH="$PATH:/Users/jimmy/.lmstudio/bin"
 # End of LM Studio CLI section
 
-
-
-
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/jimmy/.dart-cli-completion/zsh-config.zsh ]] && . /Users/jimmy/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
